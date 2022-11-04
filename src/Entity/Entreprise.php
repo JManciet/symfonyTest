@@ -17,6 +17,7 @@ class Entreprise
      */
     private $id;
 
+    /** getter id */
     public function getId(): ?int
     {
         return $this->id;
