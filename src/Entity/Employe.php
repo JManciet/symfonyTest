@@ -43,6 +43,11 @@ class Employe
      */
     private $entreprise;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $ville;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -84,6 +89,13 @@ class Employe
         return $this;
     }
 
+    public function getAge()
+    {
+        $now = new \DateTime();
+        $interval = date_diff($this->dateNaissance, $now);
+        return $interval->format('%Y');
+    }
+
     public function getDateEmbauche(): ?\DateTimeInterface
     {
         return $this->dateEmbauche;
@@ -110,7 +122,19 @@ class Employe
 
     public function __toString()
     {
-        return $this->prenom." ".$this->nom." (".$this->getEntreprise().")";
+        return $this->prenom." ".$this->nom;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
     }
 
 }
