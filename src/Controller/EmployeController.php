@@ -52,7 +52,8 @@ class EmployeController extends AbstractController
 
         // vue pour ajouter le formulaire d'ajout
         return $this->render('employe/add.html.twig', [
-            'formAddEmploye' => $form->createView()
+            'formAddEmploye' => $form->createView(),
+            'edit' => $employe->getId()
         ]);
     }
 

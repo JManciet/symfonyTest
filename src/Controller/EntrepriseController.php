@@ -52,7 +52,8 @@ class EntrepriseController extends AbstractController
 
         // vue pour ajouter le formulaire d'ajout
         return $this->render('entreprise/add.html.twig', [
-            'formAddEntreprise' => $form->createView()
+            'formAddEntreprise' => $form->createView(),
+            'edit' => $entreprise->getId()
         ]);
     }
 
